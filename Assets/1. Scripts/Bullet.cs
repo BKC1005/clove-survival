@@ -4,18 +4,12 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float moveSpeed;
-    Vector2 direction;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Vector2 direction;
+
+    public void Shoot(Vector2 dir)
     {
-        float angle = Random.Range(0f, 360f);
-
-        direction = new Vector2(
-            Mathf.Cos(angle * Mathf.Deg2Rad),
-            Mathf.Sin(angle * Mathf.Deg2Rad)
-        );
+        direction = dir;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -32,7 +26,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public void timer()
+    public void EndTimer()
     {
         StartCoroutine(timer());
         IEnumerator timer()

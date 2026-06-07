@@ -735,7 +735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   joystick: {fileID: 2066307376}
-  bullet: {fileID: 739478316442039975, guid: ac9514c4c0a91d34a906b490a42b8733, type: 3}
+  bulletPrefab: {fileID: 739478316442039975, guid: ac9514c4c0a91d34a906b490a42b8733, type: 3}
 --- !u!4 &1224297066
 Transform:
   m_ObjectHideFlags: 0
