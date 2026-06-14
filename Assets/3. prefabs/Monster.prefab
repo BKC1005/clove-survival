@@ -48,8 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  hp: 1
+  hp: 10
   playerTr: {fileID: 0}
+  exPrefab: {fileID: 6554800102299351946, guid: de06424578a1dae4a894dd03550801c3, type: 3}
 --- !u!212 &6611391393396047879
 SpriteRenderer:
   m_ObjectHideFlags: 0

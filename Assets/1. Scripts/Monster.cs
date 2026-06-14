@@ -3,8 +3,9 @@ using UnityEngine;
 public class Monster : MonoBehaviour
 {
     public float moveSpeed = 1;
-    public int hp = 1;
+    public int hp = 10;
     public Transform playerTr;
+    public GameObject exPrefab;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
@@ -24,6 +25,12 @@ public class Monster : MonoBehaviour
         if (hp <= 0)
         {
             Destroy(gameObject);
+            for(int i  = 0; i < 5; i++)
+            {
+                GameObject expObject = Instantiate(exPrefab);
+                expObject.transform.position = transform.position + (Vector3)Random.insideUnitCircle;
+
+            }
         }
     }
 }
