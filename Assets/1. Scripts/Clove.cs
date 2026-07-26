@@ -8,6 +8,7 @@ public class Clove : MonoBehaviour
     public float speed = 5.0f;
     public Joystick joystick;
     public GameObject bulletPrefab;
+    public GameObject lvupCanvas;
     public Image XPBar;
     public Image HPBar;
     public float hp = 5;
@@ -31,6 +32,8 @@ public class Clove : MonoBehaviour
             lv++;
             exlimit = exlimit * 1.5f;
             exlimit = Mathf.Round(exlimit);
+            Time.timeScale = 0;
+            lvupCanvas.SetActive(true);
             ex = 0;
             lvText.text = lv.ToString();
         }
