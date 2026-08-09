@@ -17,6 +17,7 @@ public class Clove : MonoBehaviour
     public int lv = 0;
     public TMP_Text lvText;
     float exlimit = 10;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -43,6 +44,10 @@ public class Clove : MonoBehaviour
     {
         hp -= damage;
         HPBar.fillAmount = hp / maxhp;
+        if(hp == 0)
+        {
+            GameManager.Instance.EndGame();
+        }
 
     }
 
@@ -51,10 +56,16 @@ public class Clove : MonoBehaviour
     {
         if (collision.tag == "Monster")
         {
-            TakeDamage(1);
+            Debug.Log("onTrigger fjdlksafjdlksfdsjlk");
             Destroy(collision.gameObject);
-            
+            TakeDamage(1);
+            if (hp == 0)
+            {
+                GameManager.Instance.EndGame();
+            }
         }
+
+
     }
     void Shoot()
     {
@@ -94,6 +105,7 @@ public class Clove : MonoBehaviour
             Shoot();
         }
     }
+
 
 
     // Update is called once per frame

@@ -5,6 +5,8 @@ using UnityEngine;
 public class MonsterSpawner : MonoBehaviour
 {
     [SerializeField] GameObject monsterPrefab;
+    [SerializeField] GameObject bossPrefab;
+    public int bosscount = 0;
 
     private void Start()
     {
@@ -20,9 +22,23 @@ public class MonsterSpawner : MonoBehaviour
        
 
     }
+    void BossSpawn()
+    {
+        Vector2 spawnPosition = Random.insideUnitCircle.normalized * 15;
+        GameObject obj2 = Instantiate(bossPrefab);
+        obj2.transform.position = spawnPosition;
+        StartCoroutine(wait());
+
+
+    }
     IEnumerator wait()
     {
         yield return new WaitForSeconds(3f);
+        bosscount++;
+        if (bosscount == 10)
+        {
+            BossSpawn();
+        }
         Spawn();
 
     }
