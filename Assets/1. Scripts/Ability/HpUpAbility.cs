@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class HpUpAbility : Ability
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Use()
     {
-        
-    }
+        Clove clove = FindFirstObjectByType<Clove>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        clove.maxhp += 5;
+        clove.hp += 5;
+
+        clove.HPBar.fillAmount = clove.hp / clove.maxhp;
     }
 }

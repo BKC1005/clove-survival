@@ -7,9 +7,9 @@ public class PickAbilityPanel : MonoBehaviour
     public AbilityName abilityName;
     public TMP_Text ablitytitle;
     public Image thum;
+
     public void SetAbilityName(AbilityName abilityName)
     {
-        abilityName = AbilityName.PickMeup;
         this.abilityName = abilityName;
         Ability ability;
         ability = AbilityManager.Instance.GetAbility(abilityName);
@@ -20,7 +20,12 @@ public class PickAbilityPanel : MonoBehaviour
 
     public void OnclikedPanel()
     {
-        
+        Debug.Log("선택한 이름:" + abilityName);
+        Ability ability = AbilityManager.Instance.GetAbility(abilityName);
+        Debug.Log("가져온 능력:" + ability);
+        LevelUpCanvas canvas = GetComponentInParent<LevelUpCanvas>();
+        Debug.Log("LevelUpCanvas:" + canvas);
+        canvas.PickedAbility(ability);
     }
 }
 

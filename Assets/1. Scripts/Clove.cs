@@ -21,6 +21,7 @@ public class Clove : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Time.timeScale = 1;
         StartCoroutine(Wait());
         lvText.text = "0";
     }
@@ -105,7 +106,13 @@ public class Clove : MonoBehaviour
             Shoot();
         }
     }
+    public void HpUp()
+    {
+        maxhp += 30;
+        hp += 30;
 
+        HPBar.fillAmount = hp / maxhp;
+    }
 
 
     // Update is called once per frame

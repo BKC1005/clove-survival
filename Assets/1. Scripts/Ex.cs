@@ -15,7 +15,6 @@ public class Ex : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("add Ex2213123");
         if (collision.tag == "Player")
         {
             Debug.Log("add Ex");

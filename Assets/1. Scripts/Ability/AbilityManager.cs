@@ -1,10 +1,11 @@
-using UnityEditor.Playables;
+using TMPro;
 using UnityEngine;
 
 public class AbilityManager : MonoBehaviour
 {
     public static AbilityManager Instance;
     public Ability[] abilities;
+
 
     private void Awake()
     {
