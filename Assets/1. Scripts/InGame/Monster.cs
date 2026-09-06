@@ -7,6 +7,13 @@ public class Monster : MonoBehaviour
     public Transform playerTr;
     public GameObject exPrefab;
     public int expCount=10;
+    public int doubleDamageCounter;
+
+    public void SetDoubleDamageCounter(int c)
+    {
+        doubleDamageCounter = c;
+        //몬스터 위에 효과 보여주긔.
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {

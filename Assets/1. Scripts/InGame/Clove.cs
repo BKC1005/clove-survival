@@ -15,8 +15,10 @@ public class Clove : MonoBehaviour
     public float maxhp = 5;
     public int ex = 0;
     public int lv = 0;
+    public float atkspeed = 0.8f;
     public TMP_Text lvText;
     float exlimit = 10;
+    public DamageEffect damageEffect;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,12 +47,15 @@ public class Clove : MonoBehaviour
     {
         hp -= damage;
         HPBar.fillAmount = hp / maxhp;
-        if(hp == 0)
+        damageEffect.PlayEffect();
+        
+
+        if (hp <= 0)
         {
             GameManager.Instance.EndGame();
         }
-
     }
+
 
     // 몬스터 / 데미지
     private void OnTriggerEnter2D(Collider2D collision)
@@ -102,7 +107,7 @@ public class Clove : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(atkspeed);
             Shoot();
         }
     }
